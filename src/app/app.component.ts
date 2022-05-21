@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { alunos } from './lista_alunos'; // Importa lista dos alunos
 
 @Component({
