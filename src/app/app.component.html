@@ -6,50 +6,66 @@
         Lista de Alunos
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#faturas">
+        <span class="icon"><i class="fas fa-file-invoice-dollar"></i></span>
+        Pagamentos Pendentes
+      </a>
+    </li>
   </ul>
 
-
-  <h3>FATURAS PAGAS</h3>
-  <table class='table table-striped'>
-    <thead>
-      <tr>
-        <th>Empresa</th>
-        <th>Valor</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor=" let fatura of lista_dos_alunos">
-        <tr *ngIf="fatura.dt_pgto!=''">
-          <td>{{ fatura.empresa }} </td>
-          <td> <span style="color: blue">{{ fatura.valor }}</span> </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-
+  <br>
 
   <div class="tab-content">
-    <div id="pago" class="container tab-pane active"><br>
-      <h3>FATURAS PAGAS</h3>
+    <div id="alunos" class="container tab-pane active"><br>
+      <h3>Alunos</h3>
       <table class='table table-striped'>
-        <tr>
-          <td>Fornecedor</td>
-          <td>Valor</td>
-          <td>DT pagto</td>
-        </tr>
-        <tr>
-          <td>Empresa de Alcool Gel Ltda</td>
-          <td>2.560,00</td>
-          <td>22/06/2020</td>
-        </tr>
-        <tr>
-          <td>Transportes SA</td>
-          <td>1.680,00</td>
-          <td>16/11/2020</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>RU</th>
+            <th>Nome do curso</th>
+            <th>Data de aniversário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor=" let aluno of lista_dos_alunos">
+            <tr>
+              <td>{{ aluno.nome }} </td>
+              <td>{{ aluno.ru }}</td>
+              <td>{{ aluno.nome_curso }}</td>
+              <td>{{ aluno.aniversario }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
       </table>
     </div>
 
 
+    <div id="faturas" class="container tab-pane fade"><br>
+      <h3>Alunos com pendências financeiras</h3>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>RU</th>
+            <th>Nome do curso</th>
+            <th>Valor da dívida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor=" let aluno of lista_dos_alunos">
+            <tr *ngIf="aluno.debito>0">
+              <td>{{ aluno.nome }} </td>
+              <td>{{ aluno.ru }}</td>
+              <td>{{ aluno.nome_curso }}</td>
+              <td><span style="color: red">{{ aluno.debito | currency:'BRL':true }}</span> </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+
 </div>
