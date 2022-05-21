@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { alunos } from './lista_alunos';
+import { alunos } from './lista_alunos'; // Importa lista dos alunos
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { alunos } from './lista_alunos';
 })
 export class AppComponent {
   title = 'lista_alunos';
-  lista_dos_alunos = alunos;
+  lista_dos_alunos = alunos; // Associa a lista dos alunos a uma variável para que possa ser acessada
 }

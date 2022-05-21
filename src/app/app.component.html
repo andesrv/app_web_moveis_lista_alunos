@@ -1,26 +1,27 @@
 <div class="mt-5">
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#alunos">
-        <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-        Lista de Alunos
+  <ul class="nav nav-tabs" role="tablist"> <!-- Lista de abas do menu de navegação usando bootstrap -->
+    <li class="nav-item"> <!-- item do menu de navegação do bootstrap -->
+      <a class="nav-link active" data-toggle="tab" href="#alunos"> <!-- aba (ativa por padrão) do menu de navegação -->
+        <span class="icon"><i class="fas fa-graduation-cap"></i></span> <!-- ícone na aba-->
+        Lista de Alunos <!-- texto da aba-->
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#faturas">
-        <span class="icon"><i class="fas fa-file-invoice-dollar"></i></span>
-        Pagamentos Pendentes
+    <li class="nav-item"> <!-- item do menu de navegação do bootstrap -->
+      <a class="nav-link" data-toggle="tab" href="#debitos"> <!-- outra aba (inativa por padrão) do menu de navegação -->
+        <span class="icon"><i class="fas fa-file-invoice-dollar"></i></span> <!-- ícone na aba -->
+        Pagamentos Pendentes <!-- texto da aba-->
       </a>
     </li>
   </ul>
 
   <br>
 
+  <!-- Conteúdo da primeira aba: tabela com informações dos alunos solicitadas para a atividade prática -->
   <div class="tab-content">
-    <div id="alunos" class="container tab-pane active"><br>
-      <h3>Alunos</h3>
-      <table class='table table-striped'>
-        <thead>
+    <div id="alunos" class="container tab-pane active"><br> <!-- conteúdo aba ativa por padrão -->
+      <h3>Alunos</h3> <!-- texto acima da tabela -->
+      <table class='table table-striped'> <!-- estilo "zebra" de tabela do bootstrap que facilita a visualização das linhas da tabela-->
+        <thead> <!-- cabeçalho da tabela -->
           <tr>
             <th>Nome</th>
             <th>RU</th>
@@ -28,7 +29,7 @@
             <th>Data de aniversário</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> <!-- corpo da tabela, preenchido usando '*ngFor' com os dados de 'lista_dos_alunos'-->
           <ng-container *ngFor=" let aluno of lista_dos_alunos">
             <tr>
               <td>{{ aluno.nome }} </td>
@@ -42,10 +43,11 @@
     </div>
 
 
-    <div id="faturas" class="container tab-pane fade"><br>
-      <h3>Alunos com pendências financeiras</h3>
-      <table class='table table-striped'>
-        <thead>
+    <!-- Conteúdo da segunda aba: tabela extra que mostra informações do aluno e valor do débito para os alunos que tiverem algum débito -->
+    <div id="debitos" class="container tab-pane fade"><br> <!-- conteúdo aba inativa por padrão -->
+      <h3>Alunos com pendências financeiras</h3> <!-- texto acima da tabela -->
+      <table class='table table-striped'> <!-- estilo "zebra" de tabela do bootstrap que facilita a visualização das linhas da tabela -->
+        <thead> <!-- cabeçalho da tabela -->
           <tr>
             <th>Nome</th>
             <th>RU</th>
@@ -53,13 +55,13 @@
             <th>Valor da dívida</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> <!-- corpo da tabela, preenchido usando '*ngFor' com os dados de 'lista_dos_alunos' -->
           <ng-container *ngFor=" let aluno of lista_dos_alunos">
-            <tr *ngIf="aluno.debito>0">
+            <tr *ngIf="aluno.debito>0"> <!-- usando condição '*ngIf' para só adicionar linhas com as informações dos alunos com débitos -->
               <td>{{ aluno.nome }} </td>
               <td>{{ aluno.ru }}</td>
               <td>{{ aluno.nome_curso }}</td>
-              <td><span style="color: red">{{ aluno.debito | currency:'BRL':true }}</span> </td>
+              <td><span style="color: red">{{ aluno.debito | currency:'BRL' }}</span> </td> <!-- muda cor e usa filtro currency para mostrar valor financeiro -->
             </tr>
           </ng-container>
         </tbody>

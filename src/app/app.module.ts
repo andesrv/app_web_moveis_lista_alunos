@@ -3,11 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-// // ---- localização - pt-BR -> utilizado para mostrar valor da dívida do aluno em Real
-// import { registerLocaleData } from '@angular/common';
-// import ptBR from '@angular/common/locales/pt';
-// registerLocaleData(ptBR);
-
 @NgModule({
   declarations: [
     AppComponent
@@ -15,12 +10,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [
-    // {
-    //   provide: LOCALE_ID,
-    //   useValue: 'pt'
-    // }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

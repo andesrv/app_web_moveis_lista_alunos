@@ -1,3 +1,5 @@
+// Estrutura com lista de alunos e algumas informações
+
 export const alunos = [
   {
     nome: "Anderson Viergutz",
@@ -14,7 +16,7 @@ export const alunos = [
     debito: 389.80
   },
   {
-    nome: "Joao Souza",
+    nome: "João Souza",
     ru: 3589886,
     nome_curso: "CIÊNCIA DE DADOS",
     aniversario: "22 de Março",
